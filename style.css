@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  --size: min(1dvw, 1dvh);
 }
 
 .container {
@@ -13,17 +14,18 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3dvh;
+  cursor: pointer;
 }
 
 .number {
   padding: 0 10px;
-  font-size: min(50vw, 50vh);
+  font-size: calc(var(--size) * 50);
   line-height: 1;
 }
 
 .text {
   padding: 0 10px;
-  font-size: min(10vw, 10vh);
+  font-size: calc(var(--size) * 10);
   line-height: 1;
   text-align: center;
 }
@@ -33,12 +35,12 @@ body {
 }
 
 .suggest {
-  --size: 30px;
+  --suggest-size: calc(var(--size) * 7);
   position: absolute;
   top: 0;
   right: 0;
-  width: var(--size);
-  height: var(--size);
+  width: var(--suggest-size);
+  height: var(--suggest-size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,10 +50,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--size);
-  height: var(--size);
+  width: var(--suggest-size);
+  height: var(--suggest-size);
   background-color: #555;
-  border-bottom-left-radius: calc(var(--size) / 3);
+  border-bottom-left-radius: calc(var(--suggest-size) / 3);
   cursor: pointer;
 }
 
@@ -64,19 +66,22 @@ body {
 }
 
 .suggest__label>span {
+  padding-left: calc(var(--size) / 4);
   color: #fff;
+  font-size: calc(var(--suggest-size) * 0.7);
 }
 
 .info {
   position: absolute;
-  top: var(--size);
+  top: var(--suggest-size);
   right: 0;
   display: flex;
   flex-direction: column;
   text-wrap: nowrap;
-  max-height: calc(100dvh - 2 * var(--size));
+  max-height: calc(100dvh - 2 * var(--suggest-size));
   overflow-y: auto;
   padding: 5px 10px;
+  font-size: calc(var(--size) * 3);
   background-color: #fff;
   box-shadow: 0 0 2px #00000044;
   transform: scaleY(0);
